@@ -22,12 +22,6 @@ const fetchData = () => {
 
         let labelCharacter = document.querySelector("#labelCharacter");
         labelCharacter.setAttribute("style", "");
-        
-        let myActive = document.querySelector("#myCheck");
-        myActive.setAttribute("style", "");
-
-        let myAdult = document.querySelector("#myCheck2");
-        myAdult.setAttribute("style", "");
 
         let myCharacter = document.querySelector("#myCharacter");
         myCharacter.setAttribute("style", ""); 
@@ -55,6 +49,8 @@ const listData = (data) => {
         <li id=${element.id}>
             <span class='bold'>name:</span> ${element.name}
             <span class='bold'>email:</span> ${element.email}
+            <span class='bold'>age:</span> ${element.age}
+            <span class='bold'>isactive:</span> ${element.isActive}
         </li>
         `;
     }).join(' ')
@@ -64,27 +60,51 @@ const listData = (data) => {
 //verinin filtrelenmesini sağlayan fonksiyon
 //TODO
 const filterData = () => {
-    let isActiveValue = document.getElementById("labelActive").checked;
-    let isAdultValue = document.getElementById("labelAdult").checked; 
-    let text = document.getElementById("myText").value; 
+    let isActiveValue = document.getElementById("inputActive").checked;
+    let isAdultValue = document.getElementById("inputAdult").checked; 
+    let text = document.getElementById("myCharacter").value; 
+    
+   
 
-    if(isActiveValue ){
-        let filteredData = data.filter(element => element.isActive === true);
+    if(isActiveValue && isAdultValue &&  text != ""){
+        let newtext = text.toUpperCase();
+        let character = newtext.charAt(0);
+        let filteredData = data.filter(element => element.name.charAt(0) == character &&  element.age > 17 && element.isActive === true);
+        //console.log(filterData);
+        listData(filteredData);   
+    }
+    else if(isAdultValue && text != ""){
+        let newtext = text.toUpperCase();
+        let character = newtext.charAt(0);
+        let filteredData = data.filter(element => element.name.charAt(0) == character &&  element.age > 17);
+        listData(filteredData);  
+    }
+    else if(isActiveValue && text != ""){
+        let newtext = text.toUpperCase();
+        let character = newtext.charAt(0);
+        let filteredData = data.filter(element => element.name.charAt(0) == character &&  element.isActive === true);
+        listData(filteredData);  
+    }
+    else if (isActiveValue && isAdultValue){
+        let filteredData = data.filter(element => element.isActive === true && element.age > 17);
         listData(filteredData);
     }
-    if(isAdultValue){
+    else if (text != ""){
+        let newtext = text.toUpperCase(); // console.log(text);
+        let character = newtext.charAt(0);  // console.log(character); 
+        let filteredData = data.filter(element => element.name.charAt(0) == character )// console.log(filteredData);
+        listData(filteredData);
+    }
+    else if (isAdultValue ){
         let filteredData = data.filter(element => element.age > 17);
         listData(filteredData);
     }
-    if(text != ""){
-        let newtext = text.toUpperCase();
-        // console.log(text);
-         let character = newtext.charAt(0);
-        // console.log(character); 
-        let filteredData = data.filter(element => element.name.charAt(0) == character )
-        // console.log(filteredData);
+    else{
+        let filteredData = data.filter(element => element.isActive === true);
         listData(filteredData);
     }
+    
+
 }
 
 

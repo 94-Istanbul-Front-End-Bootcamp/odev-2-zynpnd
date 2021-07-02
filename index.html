@@ -21,12 +21,8 @@
         <br/>
         <!--Todo-->       
        
-        <input type="checkbox" id="labelActive"  style="display:none" >
-        <label for="myCheck" id="myCheck" style="display:none" >Aktif Göre</label>
-        <input type="checkbox"  style="display:none" id="labelAdult"  >
-        <label for="myCheck2" id="myCheck2" style="display:none" >Reşit Göre</label>
-        
-       
+        <label style="display:none"  id="labelActive"><input type="checkbox" id="inputActive" >Aktif Göre</label>
+        <label style="display:none" id="labelAdult"><input type="checkbox" id="inputAdult" >Reşit Göre</label>
         <label for="labelCharacter" id="labelCharacter" style="display:none">Harf Giriniz:</label>
         <input type="text" id="myCharacter" style="display:none" placeholder="Karakter giriniz..." maxlength="1"> 
         <button onclick="filterData()" id="filterButton" style="display: none;">Filtrele</button>
