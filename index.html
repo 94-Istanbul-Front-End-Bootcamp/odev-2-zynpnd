@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafta 2 Gun 2</title>
+    <link href="style.css" type="text/css" rel="stylesheet"/>
+  
+    <style> 
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <button onclick="fetchData()">Getir</button>
+        <br/>
+        <!--Todo-->       
+       
+        <input type="checkbox" id="labelActive"  style="display:none" >
+        <label for="myCheck" id="myCheck" style="display:none" >Aktif Göre</label>
+        <input type="checkbox"  style="display:none" id="labelAdult"  >
+        <label for="myCheck2" id="myCheck2" style="display:none" >Reşit Göre</label>
+        
+       
+        <label for="labelCharacter" id="labelCharacter" style="display:none">Harf Giriniz:</label>
+        <input type="text" id="myCharacter" style="display:none" placeholder="Karakter giriniz..." maxlength="1"> 
+        <button onclick="filterData()" id="filterButton" style="display: none;">Filtrele</button>
+        <br/>
+        <ul class="list" >
+            
+        </ul>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
+
+<!--  <input type="checkbox" id="labelActive" name="labelActive" style="display:none" />
+                  <label for="myCheck" id="myCheck" style="display:none">Aktif Durumda Olanları Getir</label>
+                  
+                  <input type="checkbox" id="labelAge" name="labelAge"  style="display:none"/>  
+                  <label  for="myCheck2" id="myCheck2" style="display:none">Reşit olanları Getir</label>
+                 
+                  <input type="checkbox" id="labelCharacter" name="labelCharacter" style="display:none" />
+                  <label for="myCheck3" id="myCheck3" style="display:none">Harfe Göre Listeleme</label>-->
